@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -55,7 +56,7 @@ RATE_CHOICES = [
 ]
 
 
-class Revieww(models.Model):
+class Review(models.Model):
     user = models.ForeignKey(User,on_delete = models.CASCADE)
     projects = models.ForeignKey(Projects,on_delete = models.CASCADE)
     date = models.DateField(auto_now_add=True)
