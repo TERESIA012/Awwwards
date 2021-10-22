@@ -29,6 +29,22 @@ class RegistrationForm(UserCreationForm):
     email=forms.EmailField()
     class Meta:
         model = User
-        fields = ['username', 'email','password1', 'password2']             
+        fields = ['username', 'email','password1', 'password2']
+
+    def save(self, commit=True):
+        user=super().save(commit=False)
+        user.email=self.cleaned_data['email']
+        if commit:
+
+            user.save()
+        return user  
+    
+class RateForm(forms.ModelForm):
+    # text = forms.CharField(widget=forms.Textarea())
+    # rate = forms.ChoiceField(choices=RATE_CHOICES,widget=forms.Select(),required=True)
+
+    class Meta:
+        model = Review
+        fields = ['text','design','usability','content']          
            
                 
