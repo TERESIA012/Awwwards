@@ -41,18 +41,17 @@ class Projects(models.Model):
     @classmethod
     def search_projects(cls, name):
         return cls.objects.filter(title__icontains=name).all()
-
 RATE_CHOICES = [
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8,),
-(9),
-(10),
+(1,'1- Trash'),
+(2,'2- Horrible'),
+(3,'3- Terrible'),
+(4,'4- Bad'),
+(5,'5- Ok'),
+(6,'6- Watchable'),
+(7,'7- Good'),
+(8,'8- Very Good'),
+(9,'9- perfect'),
+(10,'10- Master Piece'),
 ]
 
 

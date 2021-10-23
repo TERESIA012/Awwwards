@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Profile,Projects,Revieww
+from .models import Profile,Projects,Review
 from .serializer import ProfileSerializer,ProjectSerializer
 
 # Create your views here.
