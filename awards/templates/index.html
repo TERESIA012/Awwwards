@@ -2,54 +2,55 @@
     {%extends 'base.html'%}
     {%block content%}
 
-    <div>
 
-        <div class="container-fluid"
-          style="background-image: url('https://media.istockphoto.com/photos/golden-trophy-cup-on-table-dark-background-picture-id1133992691?k=20&m=1133992691&s=612x612&w=0&h=IewMb5lMDSoerabjYY8seXZhCbY_TfivBDA6fNpkMpI=');  background-repeat: no-repeat; background-size: cover; height: 100vh;  background-position: center; text-align:center; overflow-x:hidden;">
-          
-      
-          <h1 style="  font-size:50px; margin-top:60px; color:aquamarine; font-family: 'Lobster Two', cursive;">Projects
-          </h1>
-          <p style="color: beige;"><b> By: </b>Wairimu</p>
-            <div>
-          <img src="https://ucarecdn.com/257afbc7-9e6d-4984-9939-f83076ad6d84/progressremovebgpreview.png" alt="">
-        </div>
-          
-          <a href="" class="btn btn-info btn-rounded" target="_blank">view site</a>
+
+    <div class="container-fluid"
+        style="background-image: url('https://media.istockphoto.com/photos/golden-trophy-cup-on-table-dark-background-picture-id1133992691?k=20&m=1133992691&s=612x612&w=0&h=IewMb5lMDSoerabjYY8seXZhCbY_TfivBDA6fNpkMpI=');  background-repeat: no-repeat; background-size: cover; height: 130vh;  background-position: center; text-align:center; overflow-x:hidden;">
+
+
+        <br><br><br><h1 style="  font-size:50px; margin-top:60px; color:aquamarine; font-family: 'Lobster Two', cursive;">Projects
+        </h1>
+        <p style="color: beige;"><b> By: </b>Wairimu</p>
+        <div>
+            <img src="https://ucarecdn.com/257afbc7-9e6d-4984-9939-f83076ad6d84/progressremovebgpreview.png" alt="">
         </div>
 
+        <a href="" class="btn btn-info btn-rounded" target="_blank">View Site</a>
+    </div>
 
 
 
-    <!-- <div class="container-fluid">
 
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h2 class="display-4">Awwwards</h2>
-                <p class="lead">Check out my projects, Review and Rate them! You can also post yours to be reviewed!
-                </p>
-            </div>
-        </div> -->
-        <!-- <h3>Sample Projects</h3> -->
-        <div class="row">
-            {%for proj in projects%}
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="view view-cascade overlay">
-                        <img src="{{proj.projectscreenshot.url}}" class="img-fluid" alt="">
-                        <a href="projects/{{proj.id}}">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="">{{proj.title}}</h5>
-                        <a href="projects/{{proj.id}}">Readmore</a>
-                    </div>
+
+
+
+
+
+
+
+
+    <h3>Sample Projects</h3>
+    <div class="row">
+        {%for proj in projects%}
+        <div class="col-md-3">
+            <div class="card">
+                <div class="view view-cascade overlay">
+                    <img src="" class="img-fluid" alt="">
+                    <a href="awards/{{proj.id}}">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="">{{proj.title}}</h5>
+                    <p class="card-text"><b>Description:</b>{{proj.description}}</p>
+                    <p class="card-text"><b>Created on:</b>{{proj.datecreated}}</p>
+                    <a href="awards/{{proj.id}}">See More</a>
                 </div>
             </div>
-            {%endfor%}
         </div>
+        {%endfor%}
     </div>
+
 
     {%endblock%}
 </div>
