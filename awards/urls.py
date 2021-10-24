@@ -13,7 +13,11 @@ urlpatterns = [
     path('accounts/profile/',views.profile,name = 'profile'),
     path('editprofile/',views.editprofile,name = 'editprofile'), 
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-    # path('')
+    path('awards/<id>/',views.projects,name = 'projects'),
+    path(r'ratings/', include('star_ratings.urls', namespace='ratings')),
+    path('rate/<id>/',views.rate,name = 'rate'),
+   
+
   
 
 ]
