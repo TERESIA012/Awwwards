@@ -72,9 +72,11 @@ def addProject(request):
         form = projectForm()
     return render(request,'newProject.html',{'form':form}) 
 
-def profile(request,id):
-    prof = Profile.objects.get(user = id)
-    return render(request,'profile.html',{"profile":prof})
+@login_required(login_url='login')   
+def profile(request):
+    current_user = request.user
+    profile = Profile.objects.get(user = current_user.id)
+    return render(request,'profile.html',{"profile":profile})
 
 def editprofile(request):
     user= request.user
@@ -94,36 +96,9 @@ def editprofile(request):
     }
     return render(request, 'editprofile.html', params)
 
-class ProfileList(APIView):
-    def get(self,request,format = None):
-        all_profile = Profile.objects.all()
-        serializerdata = ProfileSerializer(all_profile,many = True)
-        return Response(serializerdata.data)
+# class ProfileList(APIView):
+#     def get(self,request,format = None):
+#         all_profile = Profile.objects.all()
+#         serializerdata = ProfileSerializer(all_profile,many = True)
+#         return Response(serializerdata.data)
 
-class ProjectList(APIView):
-    def get(self,request,format = None):
-        all_projects = Projects.objects.all()
-        serializerdata = ProjectSerializer(all_projects,many = True)
-        return Response(serializerdata.data)
-
-def projects(request,id):
-    proj = Projects.objects.get(id = id)
-    return render(request,'readmore.html',{"projects":proj})
-
-@login_required(login_url='login')   
-def rate(request,id):
-    # reviews = Revieww.objects.get(projects_id = id).all()
-    # print
-    project = Projects.objects.get(id = id)
-    user = request.user
-    if request.method == 'POST':
-        form = RateForm(request.POST)
-        if form.is_valid():
-            rate = form.save(commit=False)
-            rate.user = user
-            rate.projects = project
-            rate.save()
-            return redirect('home')
-    else:
-        form = RateForm()
-    return render(request,"rate.html",{"form":form,"project":project})  
