@@ -38,7 +38,7 @@ cloudinary.config(
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yyt9b&^qwj8734q8ey!5ugn7+t@l25+x+y=+^y-)k$z3$82$!='
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -109,6 +109,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'grammys.urls'
@@ -124,8 +125,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.middleware.clickjacking.XFrameOptionsMiddleware',
-                'whitenoise.middleware.WhiteNoiseMiddleware',
+                
             ],
         },
     },
