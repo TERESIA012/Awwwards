@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Profile,Projects,Review
 from .serializer import ProfileSerializer,ProjectSerializer
+from .permissions import IsAdminOrReadOnly
 
 # Create your views here.
 
@@ -117,4 +118,18 @@ def rate(request,id):
     else:
         form = RateForm()
     return render(request,"rate.html",{"form":form,"project":project}) 
+
+class ProfileList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self,request,format = None):
+        all_profile = Profile.objects.all()
+        serializerdata = ProfileSerializer(all_profile,many = True)
+        return Response(serializerdata.data)
+
+class ProjectList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self,request,format = None):
+        all_projects = Projects.objects.all()
+        serializerdata = ProjectSerializer(all_projects,many = True)
+        return Response(serializerdata.data)
 
