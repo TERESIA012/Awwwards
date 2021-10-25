@@ -122,8 +122,8 @@ def rate(request,id):
 class ProfileList(APIView):
     permission_classes = (IsAdminOrReadOnly,)
     def get(self,request,format = None):
-        all_profile = Profile.objects.all()
-        serializerdata = ProfileSerializer(all_profile,many = True)
+        all_profiles= Profile.objects.all()
+        serializerdata = ProfileSerializer(all_profiles,many = True)
         return Response(serializerdata.data)
 
 class ProjectList(APIView):
