@@ -67,6 +67,18 @@ Open the application on your browser `127.0.0.1:8000`.
 * [Django 1.11](https://docs.djangoproject.com/en/2.2/)  
 * [Heroku](https://heroku.com)  
 
+
+## Known Bugs  
+* There are no known bugs currently but pull requests are allowed incase you spot a bug  
+  
+## Contact Information   
+If you have any question or contributions, please email me at [kingoriteresia@gmail.com]  
+  
+
+
 # LICENCE
+[MIT]([Python3](https://www.python.org/)  ) 
+
+# &COPY;Awwwards 2021
 
 
