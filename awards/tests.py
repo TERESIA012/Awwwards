@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class ProfileTest(TestCase):
     def setUp(self):
         self.tess = User(username = 'Tess',email = 'kingoriteresia@gmail.com')
-        self.tess = Profile(user = Self.tess,user = 1,Bio = 'tests',photo = 'test.jpg',date_created='oct,22.2021')
+        self.tess = Profile(user = Self.tess,user = 1,bio = 'tests',photo = 'test.jpg',date_created='oct,22.2021')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.tess,Profile))
@@ -26,7 +26,7 @@ class ProfileTest(TestCase):
 
 class ProjectsTestCase(TestCase):
     def setUp(self):
-        self.new_post = Projects(title = 'testT',projectscreenshot = 'test.jpg',description = 'testD',user = TestSuite,projecturl = 'https://test.com',date_created='Oct,22.2021')
+        self.new_post = Projects(title = 'testT',shot = 'test.jpg',description = 'testD',user = TestSuite,url = 'https://test.com',date_created='Dec,22.2021')
 
 
     def test_save_project(self):

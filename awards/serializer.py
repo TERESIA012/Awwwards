@@ -4,10 +4,10 @@ from .models import Profile,Projects
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('Bio', 'photo', 'user')
+        fields = ('bio', 'photo', 'user')
 
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Projects
-        fields = ('title', 'description', 'projectscreenshot','projecturl','user')
+        fields = ('title', 'description', 'shot','url','user')

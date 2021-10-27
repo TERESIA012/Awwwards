@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 
 class Profile(models.Model):
     photo = CloudinaryField('images')
-    Bio = models.CharField(max_length=30)
+    bio = models.CharField(max_length=30)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     datecreated= models.DateField(auto_now_add=True )
 
@@ -26,8 +26,8 @@ class Profile(models.Model):
 class Projects(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField(max_length=300)
-    projectscreenshot = CloudinaryField('images')
-    projecturl= models.URLField(max_length=200)
+    shot = CloudinaryField('images')
+    url= models.URLField(max_length=200)
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, default='', null=True ,related_name='author')
     datecreated= models.DateField(auto_now_add=True )
 
